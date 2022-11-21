@@ -13,7 +13,7 @@ CREATE TABLE `post` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  FULLTEXT KEY `title` (`title`,`body`)
+  FULLTEXT KEY `title_body` (`title`,`body`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- db_blog.comment definition
@@ -23,7 +23,7 @@ CREATE TABLE `comment` (
   `post_id` int NOT NULL,
   `username` varchar(200) NOT NULL,
   `comment` text NOT NULL,
-  `id_edited` tinyint DEFAULT '0',
+  `is_edited` tinyint DEFAULT '0',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
