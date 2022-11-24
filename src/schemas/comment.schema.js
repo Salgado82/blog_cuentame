@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const { ZERO } = require('../constants');
 
 const createComment = Joi.object({
   postId: Joi.number().required(),
@@ -15,7 +16,7 @@ const outboundComment = (comment) => ({
   postId: comment.post_id,
   username: comment.username,
   comment: comment.comment,
-  isEdited: comment.is_edited,
+  isEdited: (comment.is_edited !== ZERO),
   createdAt: comment.created_at,
   updatedAt: comment.updated_at,
 });
