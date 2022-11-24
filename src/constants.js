@@ -1,5 +1,6 @@
 const ZERO = 0;
 const SERVER_ERROR_MESSAGE = 'An error occurred';
+const PATH_UPLOAD = '/public/uploads/';
 
 const HttpErrorCodes = Object.freeze({
   NOT_FOUND: 404,
@@ -28,6 +29,7 @@ const CommentMessages = Object.freeze({
 module.exports = {
   ZERO,
   SERVER_ERROR_MESSAGE,
+  PATH_UPLOAD,
   HttpErrorCodes,
   PostMessages,
   CommentMessages,

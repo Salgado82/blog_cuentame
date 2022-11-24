@@ -30,3 +30,6 @@ CREATE TABLE `comment` (
   KEY `comment_FK` (`post_id`),
   CONSTRAINT `comment_FK` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- db_blog add image column
+ALTER TABLE db_blog.post ADD image_src TEXT NULL;

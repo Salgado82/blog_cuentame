@@ -85,3 +85,6 @@ serverless.env.*
 
 # Git
 .history
+
+# Uploads
+public/uploads/

@@ -11,7 +11,10 @@ const { outboundComments } = require('../schemas/comment.schema');
 
 const create = async function (req, res, next) {
   try {
-    const data = await postQuery.create(req.body);
+    const data = await postQuery.create({
+      ...req.body,
+      imageSrc: (req.file) ? req.file.filename : null,
+    });
     const [newPost] = await postQuery.getById(data.insertId);
     res.json({
       error: false,
@@ -67,7 +70,7 @@ const findAll = async function (req, res, next) {
     } else {
       data = await postQuery.getAll();
     }
-    
+
     res.json({
       error: false,
       message: PostMessages.FIND_ALL,

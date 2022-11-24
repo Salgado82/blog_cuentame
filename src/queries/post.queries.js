@@ -1,9 +1,15 @@
 const { executeQuery } = require('../config/db.config');
 
 async function create(data) {
-  const { title, body } = data;
+  const { title, body, imageSrc = null } = data;
+  let columns = 'title, body';
+  let values = `"${title}", "${body}"`;
+  if (imageSrc) {
+    columns += ', image_src';
+    values += `, "${imageSrc}"`;
+  }
   return executeQuery(
-    `INSERT INTO post (title, body) VALUES ("${title}", "${body}")`,
+    `INSERT INTO post (${columns}) VALUES (${values})`,
   );
 }
 
